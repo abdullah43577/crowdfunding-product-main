@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="dist/styles.css" />
+    <script defer src="./app/script.js"></script>
+    <title>Frontend Mentor | Crowdfunding product page</title>
+  </head>
+  <body>
+    <header
+      class="h-[50vh] w-full bg-[url(/images/image-hero-mobile.jpg)] bg-cover bg-center bg-no-repeat md:bg-[url(/images/image-hero-desktop.jpg)]"
+    >
+      <section id="header" class="mx-8 max-w-full py-4 md:container md:mx-auto">
+        <nav class="flex items-center justify-between">
+          <picture>
+            <img src="./images/logo.svg" alt="logo" />
+          </picture>
+
+          <ul class="hidden gap-10 text-white">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Discover</a></li>
+            <li><a href="#"> Get Started</a></li>
+          </ul>
+
+          <div class="burger cursor-pointer md:hidden">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </nav>
+      </section>
+    </header>
+
+    <main
+      class="relative mx-8 flex translate-y-[-100px] flex-col items-center justify-center gap-[1.5rem] md:mx-auto md:max-w-[600px] lg:max-w-[800px]"
+    >
+      <section
+        id="section1"
+        class="flex h-auto w-full flex-col items-center gap-[1.5rem] rounded bg-white py-16 px-5 text-center"
+      >
+        <picture class="absolute top-0 translate-y-[-20px]">
+          <img src="./images/logo-mastercraft.svg" alt="logo-mastercraft" />
+        </picture>
+
+        <h2 class="text-xl font-bold text-black">
+          Mastercraft Bamboo Monitor Riser
+        </h2>
+        <p>
+          A beautiful & handcrafted monitor stand to reduce neck and eye strain.
+        </p>
+
+        <div class="btn--sect flex w-full items-center justify-between">
+          <button
+            class="rounded-full bg-moderateCyan px-8 py-3 font-bold text-white hover:bg-darkCyan"
+          >
+            Back this project
+          </button>
+
+          <!-- mobile view -->
+          <picture class="ml-5 md:hidden">
+            <img
+              src="./images/icon-bookmark.svg"
+              alt="icon-bookmark"
+              class="w-12"
+            />
+          </picture>
+
+          <!-- desktop view -->
+          <figure
+            class="hidden w-[150px] cursor-pointer items-center justify-start rounded-full bg-darkGray md:flex"
+          >
+            <img
+              src="./images/icon-bookmark.svg"
+              alt="icon-bookmark"
+              class="w-12"
+            />
+            <figcaption class="pl-3 text-black">Bookmark</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section
+        id="section2"
+        class="flex w-full flex-col items-center rounded bg-white py-16 px-5 text-center md:text-left"
+      >
+        <div
+          class="backed--section flex-col items-center justify-evenly md:flex md:w-full md:flex-row"
+        >
+          <div
+            class="backed mb-4 border-b pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-4 lg:pr-9"
+          >
+            <h2 class="text-4xl font-bold text-black">$89,914</h2>
+            <p class="pt-3 text-sm font-medium text-darkGray">
+              of $100,000 backed
+            </p>
+          </div>
+
+          <div
+            class="backers mb-4 border-b pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-4 lg:pr-16"
+          >
+            <h2 class="text-4xl font-bold text-black">5,007</h2>
+            <p class="pt-3 text-sm font-medium text-darkGray">total backers</p>
+          </div>
+
+          <div class="days--left mb-4">
+            <h2 class="text-4xl font-bold text-black">56</h2>
+            <p class="pt-3 text-sm font-medium text-darkGray">days left</p>
+          </div>
+        </div>
+
+        <input type="range" class="w-full" />
+      </section>
+
+      <section id="section3" class="rounded bg-white py-16 px-5">
+        <h2 class="mb-5 text-xl font-bold text-black">About this project</h2>
+        <p class="mb-5 text-darkGray">
+          The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
+          that elevates your screen to a more comfortable viewing height.
+          Placing your monitor at eye level has the potential to improve your
+          posture and make you more comfortable while at work, helping you stay
+          focused on the task at hand.
+        </p>
+        <p class="text-darkGray">
+          Featuring artisan craftsmanship, the simplicity of design creates
+          extra desk space below your computer to allow notepads, pens, and USB
+          sticks to be stored under the stand.
+        </p>
+
+        <div
+          class="component mt-8 cursor-pointer rounded border border-solid border-darkGray px-8 py-4"
+        >
+          <div class="name items-center justify-between md:flex">
+            <h3 class="font-bold">Bamboo Stand</h3>
+            <h3 class="mt-1 font-medium text-moderateCyan">
+              Pledge $25 or more
+            </h3>
+          </div>
+
+          <p class="py-5">
+            You get an ergonomic stand made of natural bamboo. You've helped us
+            launch our promotional campaign, and you’ll be added to a special
+            Backer member list.
+          </p>
+
+          <div class="reward--sect items-center justify-between md:flex">
+            <p class="my-5 flex items-center text-darkGray md:my-0">
+              <span class="pr-3 text-4xl font-bold text-black">101</span>left
+            </p>
+            <button
+              class="rounded-full bg-moderateCyan px-8 py-3 font-bold text-white hover:bg-darkCyan"
+            >
+              Select Reward
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="component mt-8 cursor-pointer rounded border border-solid border-darkGray px-8 py-4"
+        >
+          <div class="name items-center justify-between md:flex">
+            <h3 class="font-bold">Black Edition Stand</h3>
+            <h3 class="mt-1 font-medium text-moderateCyan">
+              Pledge $75 or more
+            </h3>
+          </div>
+
+          <p class="py-5">
+            You get a Black Special Edition computer stand and a personal thank
+            you. You’ll be added to our Backer member list. Shipping is
+            included.
+          </p>
+
+          <div class="reward--sect items-center justify-between md:flex">
+            <p class="my-5 flex items-center text-darkGray md:my-0">
+              <span class="pr-3 text-4xl font-bold text-black">64</span>left
+            </p>
+            <button
+              class="rounded-full bg-moderateCyan px-8 py-3 font-bold text-white hover:bg-darkCyan"
+            >
+              Select Reward
+            </button>
+          </div>
+        </div>
+
+        <!-- out of stock section -->
+        <div
+          class="component mt-8 cursor-not-allowed rounded border border-solid border-darkGray px-8 py-4 opacity-50"
+        >
+          <div class="name items-center justify-between md:flex">
+            <h3 class="font-bold">Mahogany Special Edition</h3>
+            <h3 class="mt-1 font-medium text-moderateCyan">
+              Pledge $200 or more
+            </h3>
+          </div>
+
+          <p class="py-5">
+            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
+            personal thank you. You’ll be added to our Backer member list.
+            Shipping is included.
+          </p>
+
+          <div class="reward--sect items-center justify-between md:flex">
+            <p class="my-5 flex items-center text-darkGray md:my-0">
+              <span class="pr-3 text-4xl font-bold text-black">0</span>left
+            </p>
+            <button
+              class="rounded-full bg-darkGray px-8 py-3 font-bold text-white"
+            >
+              Out of Stock
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
