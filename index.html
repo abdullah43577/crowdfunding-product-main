@@ -14,9 +14,9 @@
     <script defer src="./app/script.js"></script>
     <title>Frontend Mentor | Crowdfunding product page</title>
   </head>
-  <body>
+  <body class="relative h-full w-full">
     <header
-      class="h-[50vh] w-full bg-[url(/images/image-hero-mobile.jpg)] bg-cover bg-center bg-no-repeat md:bg-[url(/images/image-hero-desktop.jpg)]"
+      class="relative h-[50vh] w-full bg-[url(/images/image-hero-mobile.jpg)] bg-cover bg-center bg-no-repeat md:bg-[url(/images/image-hero-desktop.jpg)]"
     >
       <section id="header" class="mx-8 max-w-full py-4 md:container md:mx-auto">
         <nav class="flex items-center justify-between">
@@ -24,13 +24,30 @@
             <img src="./images/logo.svg" alt="logo" />
           </picture>
 
-          <ul class="hidden gap-10 text-white">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Discover</a></li>
-            <li><a href="#"> Get Started</a></li>
+          <ul
+            class="show absolute left-0 top-[10vh] z-[250] mx-8 w-[85%] translate-x-[120%] items-center rounded bg-white p-4 text-white md:relative md:top-0 md:flex md:w-auto md:translate-x-0 md:gap-10 md:bg-transparent md:p-0"
+          >
+            <li
+              class="border-b border-darkGray py-5 text-lg font-bold text-darkGray md:border-none md:py-0 md:text-lg md:text-white"
+            >
+              <a href="#">About</a>
+            </li>
+            <li
+              class="border-b border-darkGray py-5 text-lg font-bold text-darkGray md:border-none md:py-0 md:text-lg md:text-white"
+            >
+              <a href="#">Discover</a>
+            </li>
+            <li
+              class="py-5 text-lg font-bold text-darkGray md:border-none md:py-0 md:text-lg md:text-white"
+            >
+              <a href="#"> Get Started</a>
+            </li>
           </ul>
+          <div
+            class="overlay2 fixed top-0 left-0 z-[200] hidden h-full w-full"
+          ></div>
 
-          <div class="burger cursor-pointer md:hidden">
+          <div class="burger z-[250] cursor-pointer md:hidden">
             <div class="line1"></div>
             <div class="line2"></div>
             <div class="line3"></div>
@@ -59,7 +76,7 @@
 
         <div class="btn--sect flex w-full items-center justify-between">
           <button
-            class="rounded-full bg-moderateCyan px-8 py-3 font-bold text-white hover:bg-darkCyan"
+            class="backProject rounded-full bg-moderateCyan px-8 py-3 font-bold text-white hover:bg-darkCyan"
           >
             Back this project
           </button>
@@ -212,7 +229,7 @@
               <span class="pr-3 text-4xl font-bold text-black">0</span>left
             </p>
             <button
-              class="rounded-full bg-darkGray px-8 py-3 font-bold text-white"
+              class="cursor-not-allowed rounded-full bg-darkGray px-8 py-3 font-bold text-white"
             >
               Out of Stock
             </button>
@@ -222,5 +239,217 @@
     </main>
 
     <footer></footer>
+
+    <!-- Modal section -->
+
+    <!-- Selection modal start -->
+    <div
+      id="modal--start"
+      class="hide absolute top-[25%] left-[50%] z-[9000] h-auto translate-x-[-50%] translate-y-[-50%] rounded bg-white py-5 px-5 md:top-[30%]"
+    >
+      <div
+        class="hd flex w-[280px] items-center justify-between md:w-[500px] lg:w-[800px]"
+      >
+        <h2 class="font-bold text-black">Back this project</h2>
+        <figure class="modal--close cursor-pointer">
+          <img src="./images/icon-close-modal.svg" alt="icon-close-modal" />
+        </figure>
+      </div>
+      <p class="my-5 text-sm text-darkGray">
+        Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
+        the world?
+      </p>
+
+      <div class="pledge--container flex flex-col gap-[1.5rem]">
+        <div class="cursor-pointer rounded border border-darkGray px-4 py-4">
+          <div class="input--sect my-3 flex items-center">
+            <input type="radio" id="pledge1" />
+            <p class="pl-5 text-sm font-bold text-black md:text-moderateCyan">
+              Pledge with no reward
+            </p>
+          </div>
+          <label for="pledge1" class="cursor-pointer">
+            <p class="text-sm text-darkGray">
+              Choose to support us without a reward if you simply believe in our
+              project. As a backer, you will be signed up to receive product
+              updates via email.
+            </p>
+          </label>
+        </div>
+
+        <!-- pledge 2 -->
+        <div class="cursor-pointer rounded border border-darkGray px-4 py-4">
+          <div class="input--sect my-3 flex items-center">
+            <input type="radio" id="pledge2" />
+            <div
+              class="pledge--pricing--mobile w-full items-center justify-between pl-5 md:flex"
+            >
+              <div class="items-center md:flex">
+                <p
+                  class="pr-3 text-sm font-bold text-black md:text-moderateCyan"
+                >
+                  Bamboo Stand
+                </p>
+                <p class="text-sm font-medium text-moderateCyan">
+                  Pledge $25 or more
+                </p>
+              </div>
+              <p class="hidden items-center text-sm text-darkGray md:flex">
+                <span class="hidden pr-2 text-lg font-bold text-black md:block"
+                  >101</span
+                >left
+              </p>
+            </div>
+          </div>
+
+          <label for="pledge2" class="cursor-pointer">
+            <p class="my-4 text-sm text-darkGray md:my-0">
+              You get an ergonomic stand made of natural bamboo. You've helped
+              us launch our promotional campaign, and you’ll be added to a
+              special Backer member list.
+            </p>
+            <p class="flex items-center text-sm text-darkGray md:hidden">
+              <span class="pr-2 text-lg font-bold text-black">101</span>left
+            </p>
+          </label>
+
+          <!-- custom input section -->
+          <div
+            class="custom--pledge mt-4 hidden w-full flex-col items-center justify-between border-t border-darkGray py-3 md:flex-row"
+          >
+            <div class="text--cont my-3">
+              <p class="text-sm text-darkGray">Enter your pledge</p>
+            </div>
+            <div class="input--btn flex items-center">
+              <!-- onclick of the input the input.value should be = 25 -->
+
+              <input
+                type="text"
+                placeholder="$"
+                class="mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
+              />
+              <button class="rounded-3xl bg-moderateCyan px-4 py-3 text-white">
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- pledge 3 -->
+        <div class="cursor-pointer rounded border border-darkGray px-4 py-4">
+          <div class="input--sect my-3 flex items-center">
+            <input type="radio" id="pledge3" />
+            <div
+              class="pledge--pricing--mobile w-full items-center justify-between pl-5 md:flex"
+            >
+              <div class="items-center md:flex">
+                <p class="pr-3 text-sm font-bold text-black">
+                  Black Edition Stand
+                </p>
+                <p class="text-sm font-medium text-moderateCyan">
+                  Pledge $75 or more
+                </p>
+              </div>
+              <p class="hidden items-center text-sm text-darkGray md:flex">
+                <span class="hidden pr-2 text-lg font-bold text-black md:block"
+                  >64</span
+                >left
+              </p>
+            </div>
+          </div>
+
+          <label for="pledge3" class="cursor-pointer">
+            <p class="my-4 text-sm text-darkGray md:my-0">
+              You get a Black Special Edition computer stand and a personal
+              thank you. You’ll be added to our Backer member list. Shipping is
+              included.
+            </p>
+            <p class="flex items-center text-sm text-darkGray md:hidden">
+              <span class="pr-2 text-lg font-bold text-black">64</span>left
+            </p>
+          </label>
+
+          <!-- custom input section -->
+          <div
+            class="custom--pledge mt-4 hidden w-full flex-col items-center justify-between border-t border-darkGray py-3 md:flex-row"
+          >
+            <div class="text--cont my-3">
+              <p class="text-sm text-darkGray">Enter your pledge</p>
+            </div>
+            <div class="input--btn flex items-center">
+              <!-- onclick of the input the input.value should be = 75 -->
+              <input
+                type="text"
+                placeholder="$"
+                class="mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
+              />
+              <button class="rounded-3xl bg-moderateCyan px-4 py-3 text-white">
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- pledge 4 -->
+        <!-- out of stock section -->
+        <div
+          class="cursor-not-allowed rounded border border-darkGray px-4 py-4 opacity-50"
+        >
+          <div class="input--sect my-3 flex items-center">
+            <input disabled type="radio" id="pledge4" />
+            <div
+              class="pledge--pricing--mobile flex w-full items-center justify-between pl-5"
+            >
+              <div class="items-center md:flex">
+                <p class="pr-3 text-sm font-bold text-black">
+                  Mahogany Special Edition
+                </p>
+                <p class="text-sm font-medium text-moderateCyan">
+                  Pledge $200 or more
+                </p>
+              </div>
+              <p class="hidden items-center text-sm text-darkGray md:flex">
+                <span class="hidden pr-2 text-lg font-bold text-black md:block"
+                  >0</span
+                >left
+              </p>
+            </div>
+          </div>
+          <label for="pledge4" class="cursor-not-allowed">
+            <p class="my-4 text-sm text-darkGray md:my-0">
+              You get two Special Edition Mahogany stands, a Backer T-Shirt, and
+              a personal thank you. You’ll be added to our Backer member list.
+              Shipping is included.
+            </p>
+            <p class="flex items-center text-sm text-darkGray md:hidden">
+              <span class="pr-2 text-lg font-bold text-black">0</span>left
+            </p>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thank you Page -->
+    <div
+      class="thank--you hide absolute top-[15%] left-[50%] z-[9000] h-auto w-[300px] translate-x-[-50%] translate-y-[-50%] flex-col items-center justify-center rounded bg-white py-10 px-10 sm:w-[400px] md:top-[20%]"
+    >
+      <figure>
+        <img src="./images/icon-check.svg" alt="icon-check" />
+      </figure>
+      <h2 class="mt-4 text-lg font-bold text-black sm:text-xl">
+        Thanks for your support!
+      </h2>
+      <p class="my-5 text-center text-sm text-darkGray sm:text-lg">
+        Your pledge brings us one step closer to sharing Mastercraft Bamboo
+        Monitor Riser worldwide. You will get an email once our campaign is
+        completed.
+      </p>
+      <button
+        class="rounded-3xl bg-moderateCyan px-6 py-3 font-medium text-white"
+      >
+        Got it!
+      </button>
+    </div>
+    <div class="overlay hide fixed top-0 left-0 z-[5000] h-full w-full"></div>
   </body>
 </html>
