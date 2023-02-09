@@ -92,14 +92,15 @@
 
           <!-- desktop view -->
           <figure
-            class="hidden w-[150px] cursor-pointer items-center justify-start rounded-full bg-darkGray md:flex"
+            class="bookmark hidden w-[150px] cursor-pointer items-center justify-start rounded-full bg-darkGray md:flex"
           >
-            <img
-              src="./images/icon-bookmark.svg"
-              alt="icon-bookmark"
-              class="w-12"
-            />
-            <figcaption class="pl-3 text-black">Bookmark</figcaption>
+            <svg width="59" height="56" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" fill-rule="evenodd">
+                <circle fill="#2F2F2F" cx="28" cy="28" r="28" />
+                <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
+              </g>
+            </svg>
+            <figcaption class="pl-1 text-black">Bookmark</figcaption>
           </figure>
         </div>
       </section>
@@ -112,9 +113,9 @@
           class="backed--section flex-col items-center justify-evenly md:flex md:w-full md:flex-row"
         >
           <div
-            class="backed mb-4 border-b pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-4 lg:pr-9"
+            class="mb-4 border-b pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-4 lg:pr-9"
           >
-            <h2 class="text-4xl font-bold text-black">$89,914</h2>
+            <h2 class="totalBackedEl text-4xl font-bold text-black">$89,914</h2>
             <p class="pt-3 text-sm font-medium text-darkGray">
               of $100,000 backed
             </p>
@@ -123,7 +124,7 @@
           <div
             class="backers mb-4 border-b pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-4 lg:pr-16"
           >
-            <h2 class="text-4xl font-bold text-black">5,007</h2>
+            <h2 class="backers text-4xl font-bold text-black">5,007</h2>
             <p class="pt-3 text-sm font-medium text-darkGray">total backers</p>
           </div>
 
@@ -133,7 +134,9 @@
           </div>
         </div>
 
-        <input type="range" class="w-full" />
+        <div class="containerRange h-3 w-full rounded-full bg-white">
+          <div class="range h-full w-[89%] rounded-full bg-moderateCyan"></div>
+        </div>
       </section>
 
       <section id="section3" class="rounded bg-white py-16 px-5">
@@ -261,14 +264,16 @@
       </p>
 
       <div class="pledge--container flex flex-col gap-[1.5rem]">
-        <div class="cursor-pointer rounded border border-darkGray px-4 py-4">
+        <div
+          class="pledge cursor-pointer rounded border border-darkGray px-4 py-4"
+        >
           <div class="input--sect my-3 flex items-center">
             <input type="radio" id="pledge1" />
             <p class="pl-5 text-sm font-bold text-black md:text-moderateCyan">
               Pledge with no reward
             </p>
           </div>
-          <label for="pledge1" class="cursor-pointer">
+          <label class="cursor-pointer">
             <p class="text-sm text-darkGray">
               Choose to support us without a reward if you simply believe in our
               project. As a backer, you will be signed up to receive product
@@ -278,7 +283,9 @@
         </div>
 
         <!-- pledge 2 -->
-        <div class="cursor-pointer rounded border border-darkGray px-4 py-4">
+        <div
+          class="pledge cursor-pointer rounded border border-darkGray px-4 py-4"
+        >
           <div class="input--sect my-3 flex items-center">
             <input type="radio" id="pledge2" />
             <div
@@ -302,7 +309,7 @@
             </div>
           </div>
 
-          <label for="pledge2" class="cursor-pointer">
+          <label class="cursor-pointer">
             <p class="my-4 text-sm text-darkGray md:my-0">
               You get an ergonomic stand made of natural bamboo. You've helped
               us launch our promotional campaign, and you’ll be added to a
@@ -321,12 +328,11 @@
               <p class="text-sm text-darkGray">Enter your pledge</p>
             </div>
             <div class="input--btn flex items-center">
-              <!-- onclick of the input the input.value should be = 25 -->
-
               <input
                 type="text"
-                placeholder="$"
-                class="mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
+                placeholder="$ 25"
+                autofocus
+                class="bamboo mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
               />
               <button class="rounded-3xl bg-moderateCyan px-4 py-3 text-white">
                 Continue
@@ -336,7 +342,9 @@
         </div>
 
         <!-- pledge 3 -->
-        <div class="cursor-pointer rounded border border-darkGray px-4 py-4">
+        <div
+          class="pledge cursor-pointer rounded border border-darkGray px-4 py-4"
+        >
           <div class="input--sect my-3 flex items-center">
             <input type="radio" id="pledge3" />
             <div
@@ -358,7 +366,7 @@
             </div>
           </div>
 
-          <label for="pledge3" class="cursor-pointer">
+          <label class="cursor-pointer">
             <p class="my-4 text-sm text-darkGray md:my-0">
               You get a Black Special Edition computer stand and a personal
               thank you. You’ll be added to our Backer member list. Shipping is
@@ -377,11 +385,11 @@
               <p class="text-sm text-darkGray">Enter your pledge</p>
             </div>
             <div class="input--btn flex items-center">
-              <!-- onclick of the input the input.value should be = 75 -->
               <input
                 type="text"
-                placeholder="$"
-                class="mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
+                placeholder="$ 75"
+                autofocus
+                class="black mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
               />
               <button class="rounded-3xl bg-moderateCyan px-4 py-3 text-white">
                 Continue
@@ -445,7 +453,7 @@
         completed.
       </p>
       <button
-        class="rounded-3xl bg-moderateCyan px-6 py-3 font-medium text-white"
+        class="btn--close--thankyou rounded-3xl bg-moderateCyan px-6 py-3 font-medium text-white"
       >
         Got it!
       </button>

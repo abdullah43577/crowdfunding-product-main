@@ -515,6 +515,34 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.container{
+  width: 100%;
+}
+
+@media (min-width: 480px){
+  .container{
+    max-width: 480px;
+  }
+}
+
+@media (min-width: 768px){
+  .container{
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 976px){
+  .container{
+    max-width: 976px;
+  }
+}
+
+@media (min-width: 1240px){
+  .container{
+    max-width: 1240px;
+  }
+}
+
 .fixed{
   position: fixed;
 }
@@ -635,6 +663,10 @@ video {
   height: auto;
 }
 
+.h-3{
+  height: 0.75rem;
+}
+
 .w-full{
   width: 100%;
 }
@@ -661,6 +693,10 @@ video {
 
 .w-\[300px\]{
   width: 300px;
+}
+
+.w-\[89\%\]{
+  width: 89%;
 }
 
 .max-w-full{
@@ -851,8 +887,8 @@ video {
   padding-right: 1.5rem;
 }
 
-.pl-3{
-  padding-left: 0.75rem;
+.pl-1{
+  padding-left: 0.25rem;
 }
 
 .pb-4{
@@ -1027,6 +1063,36 @@ input::-webkit-slider-thumb {
 .hide {
   visibility: hidden;
   opacity: 0;
+}
+
+.activePledge {
+  background-color: hsla(176, 50%, 47%, 0.1);
+  border-color: hsl(176, 50%, 47%);
+}
+
+.activePledge > div.custom--pledge {
+  display: flex;
+}
+
+.bookmarked {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.bookmarked svg > g > circle {
+  fill: hsl(176, 72%, 28%);
+}
+
+.bookmarked figcaption {
+  color: hsl(176, 72%, 28%);
+  font-weight: 700;
+}
+
+.containerRange {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.range {
+  transition: width 0.5s ease;
 }
 
 .hover\:bg-darkCyan:hover{
