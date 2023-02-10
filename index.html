@@ -82,13 +82,17 @@
           </button>
 
           <!-- mobile view -->
-          <picture class="ml-5 md:hidden">
-            <img
-              src="./images/icon-bookmark.svg"
-              alt="icon-bookmark"
-              class="w-12"
-            />
-          </picture>
+          <svg
+            class="ml-5 md:hidden"
+            width="56"
+            height="56"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g fill="none" fill-rule="evenodd">
+              <circle fill="#2F2F2F" cx="28" cy="28" r="28" />
+              <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
+            </g>
+          </svg>
 
           <!-- desktop view -->
           <figure
@@ -171,7 +175,7 @@
           </p>
 
           <div class="reward--sect items-center justify-between md:flex">
-            <p class="my-5 flex items-center text-darkGray md:my-0">
+            <p class="bambooLeft my-5 flex items-center text-darkGray md:my-0">
               <span class="pr-3 text-4xl font-bold text-black">101</span>left
             </p>
             <button
@@ -179,6 +183,32 @@
             >
               Select Reward
             </button>
+          </div>
+
+          <!-- custom input section -->
+          <div
+            class="custom--pledge mt-4 hidden w-full flex-col items-center justify-between border-t border-darkGray py-3 md:flex-row"
+          >
+            <div class="text--cont my-3">
+              <p class="text-sm text-darkGray">Enter your pledge</p>
+            </div>
+            <div class="input--btn flex items-center">
+              <div class="errorFlex">
+                <input
+                  type="text"
+                  placeholder="$ 25"
+                  autofocus
+                  class="bamboo mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
+                />
+                <!-- new code -->
+                <p
+                  class="errorMsg top-0 text-center text-sm font-medium text-[red]"
+                ></p>
+              </div>
+              <button class="rounded-3xl bg-moderateCyan px-4 py-3 text-white">
+                Continue
+              </button>
+            </div>
           </div>
         </div>
 
@@ -199,7 +229,7 @@
           </p>
 
           <div class="reward--sect items-center justify-between md:flex">
-            <p class="my-5 flex items-center text-darkGray md:my-0">
+            <p class="editionLeft my-5 flex items-center text-darkGray md:my-0">
               <span class="pr-3 text-4xl font-bold text-black">64</span>left
             </p>
             <button
@@ -208,11 +238,37 @@
               Select Reward
             </button>
           </div>
+
+          <!-- custom input section -->
+          <div
+            class="custom--pledge mt-4 hidden w-full flex-col items-center justify-between border-t border-darkGray py-3 md:flex-row"
+          >
+            <div class="text--cont my-3">
+              <p class="text-sm text-darkGray">Enter your pledge</p>
+            </div>
+            <div class="input--btn flex items-center">
+              <div class="errorFlex">
+                <input
+                  type="text"
+                  placeholder="$ 75"
+                  autofocus
+                  class="black mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
+                />
+                <!-- new code -->
+                <p
+                  class="errorMsg top-0 text-center text-sm font-medium text-[red]"
+                ></p>
+              </div>
+              <button class="rounded-3xl bg-moderateCyan px-4 py-3 text-white">
+                Continue
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- out of stock section -->
         <div
-          class="component mt-8 cursor-not-allowed rounded border border-solid border-darkGray px-8 py-4 opacity-50"
+          class="mt-8 cursor-not-allowed rounded border border-solid border-darkGray px-8 py-4 opacity-50"
         >
           <div class="name items-center justify-between md:flex">
             <h3 class="font-bold">Mahogany Special Edition</h3>
@@ -265,7 +321,7 @@
 
       <div class="pledge--container flex flex-col gap-[1.5rem]">
         <div
-          class="pledge cursor-pointer rounded border border-darkGray px-4 py-4"
+          class="pledge noPledge cursor-pointer rounded border border-darkGray px-4 py-4"
         >
           <div class="input--sect my-3 flex items-center">
             <input type="radio" id="pledge1" />
@@ -284,7 +340,7 @@
 
         <!-- pledge 2 -->
         <div
-          class="pledge cursor-pointer rounded border border-darkGray px-4 py-4"
+          class="pledge pledgeInput cursor-pointer rounded border border-darkGray px-4 py-4"
         >
           <div class="input--sect my-3 flex items-center">
             <input type="radio" id="pledge2" />
@@ -328,12 +384,18 @@
               <p class="text-sm text-darkGray">Enter your pledge</p>
             </div>
             <div class="input--btn flex items-center">
-              <input
-                type="text"
-                placeholder="$ 25"
-                autofocus
-                class="bamboo mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
-              />
+              <div class="errorFlex">
+                <input
+                  type="text"
+                  placeholder="$ 25"
+                  autofocus
+                  class="bamboo mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
+                />
+                <!-- new code -->
+                <p
+                  class="errorMsg top-0 text-center text-sm font-medium text-[red]"
+                ></p>
+              </div>
               <button class="rounded-3xl bg-moderateCyan px-4 py-3 text-white">
                 Continue
               </button>
@@ -343,7 +405,7 @@
 
         <!-- pledge 3 -->
         <div
-          class="pledge cursor-pointer rounded border border-darkGray px-4 py-4"
+          class="pledge pledgeInput cursor-pointer rounded border border-darkGray px-4 py-4"
         >
           <div class="input--sect my-3 flex items-center">
             <input type="radio" id="pledge3" />
@@ -385,12 +447,18 @@
               <p class="text-sm text-darkGray">Enter your pledge</p>
             </div>
             <div class="input--btn flex items-center">
-              <input
-                type="text"
-                placeholder="$ 75"
-                autofocus
-                class="black mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
-              />
+              <div class="errorFlex">
+                <input
+                  type="text"
+                  placeholder="$ 75"
+                  autofocus
+                  class="black mr-2 w-[80px] rounded-3xl border border-darkGray px-4 py-3 outline-none"
+                />
+                <!-- new code -->
+                <p
+                  class="errorMsg top-0 text-center text-sm font-medium text-[red]"
+                ></p>
+              </div>
               <button class="rounded-3xl bg-moderateCyan px-4 py-3 text-white">
                 Continue
               </button>

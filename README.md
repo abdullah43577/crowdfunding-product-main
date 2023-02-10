@@ -30,7 +30,10 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](<./screenshots/Screenshot%20(92).png>)
+![](<./screenshots/Screenshot%20(93).png>)
+![](<./screenshots/Screenshot%20(94).png>)
+![](<./screenshots/Screenshot%20(95).png>)
 
 ### Links
 
@@ -46,18 +49,11 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- [Tailwind](https://tailwindcss.com/docs/installation) - CSS Framework
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Resource](https://tailwindcss.com/docs/installation) - This helped me with manipulating the DOM removing and adding classes quite easier since I'm using utility classes provied by tailwind
 
 ## Author
 

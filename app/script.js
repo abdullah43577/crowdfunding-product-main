@@ -7,6 +7,7 @@ const modalClose = document.querySelector(".modal--close");
 const burger = document.querySelector(".burger");
 const showMenu = document.querySelector(".show");
 const overlay2 = document.querySelector(".overlay2");
+
 const thankYou = document.querySelector(".thank--you");
 const btnCloseThankYou = document.querySelector(".btn--close--thankyou");
 const pledgeContainer = document.querySelector(".pledge--container");
@@ -14,13 +15,21 @@ const radioBtnNode = document.querySelectorAll('input[type="radio"]');
 const inputs = document.querySelectorAll('input[type="text"]');
 const btns = document.querySelectorAll(".input--btn > button");
 const bookmark = document.querySelector(".bookmark");
+
 const totalBackedEl = document.querySelector(".totalBackedEl");
-const backedEl = document.querySelector(".backers");
+const backedEl = document.querySelector(".backers > h2");
 const range = document.querySelector(".range");
+const bambooLeftEl = document.querySelector(".bambooLeft");
+const editionLeftEl = document.querySelector(".editionLeft");
+let noPledge = document.querySelector(".noPledge");
+const section3 = document.getElementById("section3");
 
 let pledge = 0;
 let totalBacked = 89914;
 let backed = 100000;
+let bambooLeft = 101;
+let editionLeft = 64;
+let backers = 5007;
 
 const showModal = function () {
   overlay.classList.remove("hide");
@@ -39,7 +48,25 @@ const closeModal = function () {
 backProject.addEventListener("click", showModal);
 modalClose.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
-btnCloseThankYou.addEventListener("click", closeModal);
+btnCloseThankYou.addEventListener("click", function () {
+  closeModal();
+
+  // this is for a later section
+  // remove active pledge on clicking another pledge
+  document.querySelectorAll(".component").forEach((pld) => {
+    if (pld.classList.contains("activePledge"))
+      pld.classList.remove("activePledge");
+  });
+});
+
+bookmark.addEventListener("click", function () {
+  bookmark.classList.toggle("bookmarked");
+});
+
+const mbBookmark = document.querySelector(".btn--sect svg");
+mbBookmark.addEventListener("click", function () {
+  mbBookmark.classList.toggle("mbBookmark");
+});
 
 // burger menu
 burger.addEventListener("click", function () {
@@ -74,32 +101,130 @@ pledgeContainer.addEventListener("click", function (e) {
   // add active classes to radio btns and the div element
   clickedPledge.classList.add("activePledge");
   radioBtn.checked = true;
-});
 
-btns.forEach((btn, i) => {
+  // validation of input section
+
+  // input at the selected pledge container
+  let input =
+    clickedPledge.lastElementChild.lastElementChild.firstElementChild
+      .firstElementChild;
+
+  // btn at the selected pledge container
+  let btn = clickedPledge.lastElementChild.lastElementChild.lastElementChild;
+
+  // validate inputs
+  const regexCode = /[0-9]/g;
+  let errorMsg =
+    clickedPledge.lastElementChild.lastElementChild.firstElementChild
+      .lastElementChild;
+
   btn.addEventListener("click", function () {
-    // will change this later
-    pledge = Number(inputs[i].value);
+    // if input doesn't match a value between 0 - 9
+    if (!regexCode.test(Number(input.value))) {
+      errorMsg.textContent = "invalid";
+      input.style.borderColor = "red";
+
+      setTimeout(() => {
+        errorMsg.textContent = "";
+        input.style.borderColor = "hsl(0, 0%, 48%)";
+      }, 3000);
+      return;
+    }
+    pledge = Number(input.value);
+    console.log(pledge);
     totalBacked += pledge;
-    console.log(totalBacked);
-    totalBackedEl.textContent = `$${totalBacked}`;
-    let percentageValue = (totalBacked / backed) * 100;
-    range.style.width = Math.floor(percentageValue) + "%";
 
     renderThankYou();
   });
+
+  // max value of pledge a user can make
+  let value =
+    clickedPledge.firstElementChild.lastElementChild.lastElementChild
+      .firstElementChild;
+  // console.log(value);
 });
 
 const renderThankYou = function () {
   modalStart.classList.add("hide");
   thankYou.classList.remove("hide");
   thankYou.classList.add("flex");
+  overlay.classList.remove("hide");
+
+  // delayed updating of the DOM
+  setTimeout(() => {
+    // if backed value is greater than 100,000 set the value to 100,000
+    if (totalBacked >= 100000) {
+      totalBacked = 100000;
+      totalBackedEl.textContent = `$${formatNumber(totalBacked)}`;
+      let percentageValue = (totalBacked / backed) * 100;
+      range.style.width = Math.floor(percentageValue) + "%";
+    } else {
+      totalBackedEl.textContent = `$${formatNumber(totalBacked)}`;
+      let percentageValue = (totalBacked / backed) * 100;
+      range.style.width = Math.floor(percentageValue) + "%";
+    }
+    // increase backers count
+    increaseBackers();
+  }, 5000);
 };
 
-bookmark.addEventListener("click", function () {
-  bookmark.classList.toggle("bookmarked");
+// no pledge sect
+noPledge.addEventListener("click", function () {
+  renderThankYou();
 });
 
-// progress bar section
+section3.addEventListener("click", function (e) {
+  let reward = e.target.closest(".component");
 
-// const newString = totalBacked.replaceAll(/\,/g, "");
+  if (!reward) return;
+
+  // remove active pledge on clicking another pledge
+  document.querySelectorAll(".component").forEach((pld) => {
+    if (pld.classList.contains("activePledge"))
+      pld.classList.remove("activePledge");
+  });
+
+  reward.classList.add("activePledge");
+
+  // validation of input section
+
+  // input at the selected pledge container
+  let input =
+    reward.lastElementChild.lastElementChild.firstElementChild
+      .firstElementChild;
+
+  // btn at the selected pledge container
+  let btn = reward.lastElementChild.lastElementChild.lastElementChild;
+
+  // validate inputs
+  const regexCode = /\d/g;
+  let errorMsg =
+    reward.lastElementChild.lastElementChild.firstElementChild.lastElementChild;
+
+  btn.addEventListener("click", function () {
+    // if input doesn't match a value between 0 - 9
+    if (!regexCode.test(Number(input.value))) {
+      errorMsg.textContent = "invalid";
+      input.style.borderColor = "red";
+
+      setTimeout(() => {
+        errorMsg.textContent = "";
+        input.style.borderColor = "hsl(0, 0%, 48%)";
+      }, 3000);
+      return;
+    }
+    pledge = Number(input.value);
+    totalBacked += pledge;
+
+    renderThankYou();
+  });
+});
+
+function formatNumber(num) {
+  return num.toLocaleString();
+}
+
+function increaseBackers() {
+  backers++;
+  backedEl.textContent = formatNumber(backers);
+}
