@@ -90,7 +90,7 @@ function validateInput(input, errorMsg, btn) {
     functionCalled = true;
 
     // if input doesn't match a value between 0 - 9
-    if (!regexCode.test(Number(input.value))) {
+    if (!regexCode.test(Number(input.value)) || !input.value) {
       errorMsg.textContent = "invalid";
       input.style.borderColor = "red";
 
@@ -205,9 +205,11 @@ section3.addEventListener("click", function (e) {
   let input =
     reward2.lastElementChild.lastElementChild.firstElementChild
       .firstElementChild;
+  console.log(input);
 
   // btn at the selected pledge container
   btn = reward2.lastElementChild.lastElementChild.lastElementChild;
+  console.log(btn);
 
   // validate inputs
   const regexCode = /\d/g;
