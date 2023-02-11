@@ -37,7 +37,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution URL here](https://your-solution-url.com)
+- Solution URL: [Solution URL here](https://www.frontendmentor.io/solutions/responsive-crowdfund-landing-page-built-using-vanilla-js-and-tailwind--zziUf3Jgk)
 - Live Site URL: [Live site URL here](https://crowdfunding-product-pg.netlify.app/)
 
 ## My process
@@ -47,7 +47,6 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [Tailwind](https://tailwindcss.com/docs/installation) - CSS Framework
 
