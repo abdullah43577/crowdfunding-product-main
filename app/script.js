@@ -30,6 +30,7 @@ let backed = 100000;
 let bambooLeft = 101;
 let editionLeft = 64;
 let backers = 5007;
+let functionCalled = false;
 
 const showModal = function () {
   overlay.classList.remove("hide");
@@ -45,7 +46,11 @@ const closeModal = function () {
   thankYou.classList.remove("flex");
 };
 
-backProject.addEventListener("click", showModal);
+backProject.addEventListener("click", function () {
+  showModal();
+
+  functionCalled = false;
+});
 modalClose.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 btnCloseThankYou.addEventListener("click", function () {
@@ -76,6 +81,42 @@ burger.addEventListener("click", function () {
 });
 
 // pledge container section
+let btn;
+
+function validateInput(input, errorMsg, btn) {
+  // validate inputs
+  const regexCode = /[0-9]/g;
+
+  btn.addEventListener("click", function () {
+    if (functionCalled) return;
+    functionCalled = true;
+
+    // if input doesn't match a value between 0 - 9
+    if (!regexCode.test(Number(input.value))) {
+      console.log("clicked wrong");
+      errorMsg.textContent = "invalid";
+      input.style.borderColor = "red";
+
+      setTimeout(() => {
+        errorMsg.textContent = "";
+        input.style.borderColor = "hsl(0, 0%, 48%)";
+      }, 3000);
+
+      functionCalled = false;
+      return;
+    }
+
+    console.log("clicked right");
+    pledge = Number(input.value);
+    console.log(pledge);
+    totalBacked += pledge;
+    console.log(pledge);
+    pledge = 0;
+    console.log(pledge);
+
+    renderThankYou();
+  });
+}
 
 pledgeContainer.addEventListener("click", function (e) {
   let clickedPledge = e.target.closest(".pledge");
@@ -110,7 +151,7 @@ pledgeContainer.addEventListener("click", function (e) {
       .firstElementChild;
 
   // btn at the selected pledge container
-  let btn = clickedPledge.lastElementChild.lastElementChild.lastElementChild;
+  btn = clickedPledge.lastElementChild.lastElementChild.lastElementChild;
 
   // validate inputs
   const regexCode = /[0-9]/g;
@@ -118,30 +159,7 @@ pledgeContainer.addEventListener("click", function (e) {
     clickedPledge.lastElementChild.lastElementChild.firstElementChild
       .lastElementChild;
 
-  btn.addEventListener("click", function () {
-    // if input doesn't match a value between 0 - 9
-    if (!regexCode.test(Number(input.value))) {
-      errorMsg.textContent = "invalid";
-      input.style.borderColor = "red";
-
-      setTimeout(() => {
-        errorMsg.textContent = "";
-        input.style.borderColor = "hsl(0, 0%, 48%)";
-      }, 3000);
-      return;
-    }
-    pledge = Number(input.value);
-    console.log(pledge);
-    totalBacked += pledge;
-
-    renderThankYou();
-  });
-
-  // max value of pledge a user can make
-  let value =
-    clickedPledge.firstElementChild.lastElementChild.lastElementChild
-      .firstElementChild;
-  // console.log(value);
+  validateInput(input, errorMsg, btn);
 });
 
 const renderThankYou = function () {
@@ -194,30 +212,14 @@ section3.addEventListener("click", function (e) {
       .firstElementChild;
 
   // btn at the selected pledge container
-  let btn = reward.lastElementChild.lastElementChild.lastElementChild;
+  btn = reward.lastElementChild.lastElementChild.lastElementChild;
 
   // validate inputs
   const regexCode = /\d/g;
   let errorMsg =
     reward.lastElementChild.lastElementChild.firstElementChild.lastElementChild;
 
-  btn.addEventListener("click", function () {
-    // if input doesn't match a value between 0 - 9
-    if (!regexCode.test(Number(input.value))) {
-      errorMsg.textContent = "invalid";
-      input.style.borderColor = "red";
-
-      setTimeout(() => {
-        errorMsg.textContent = "";
-        input.style.borderColor = "hsl(0, 0%, 48%)";
-      }, 3000);
-      return;
-    }
-    pledge = Number(input.value);
-    totalBacked += pledge;
-
-    renderThankYou();
-  });
+  validateInput(input, errorMsg, btn);
 });
 
 function formatNumber(num) {
