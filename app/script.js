@@ -91,7 +91,6 @@ function validateInput(input, errorMsg, btn) {
 
     // if input doesn't match a value between 0 - 9
     if (!regexCode.test(Number(input.value))) {
-      console.log("clicked wrong");
       errorMsg.textContent = "invalid";
       input.style.borderColor = "red";
 
@@ -104,13 +103,9 @@ function validateInput(input, errorMsg, btn) {
       return;
     }
 
-    console.log("clicked right");
     pledge = Number(input.value);
-    console.log(pledge);
     totalBacked += pledge;
-    console.log(pledge);
     pledge = 0;
-    console.log(pledge);
 
     renderThankYou();
   });
