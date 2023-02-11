@@ -185,7 +185,9 @@ noPledge.addEventListener("click", function () {
 });
 
 section3.addEventListener("click", function (e) {
-  let reward = e.target.closest(".component");
+  let reward = e.target.closest("button");
+
+  let reward2 = e.target.closest(".component");
 
   if (!reward) return;
 
@@ -195,22 +197,23 @@ section3.addEventListener("click", function (e) {
       pld.classList.remove("activePledge");
   });
 
-  reward.classList.add("activePledge");
+  reward2.classList.add("activePledge");
 
   // validation of input section
 
   // input at the selected pledge container
   let input =
-    reward.lastElementChild.lastElementChild.firstElementChild
+    reward2.lastElementChild.lastElementChild.firstElementChild
       .firstElementChild;
 
   // btn at the selected pledge container
-  btn = reward.lastElementChild.lastElementChild.lastElementChild;
+  btn = reward2.lastElementChild.lastElementChild.lastElementChild;
 
   // validate inputs
   const regexCode = /\d/g;
   let errorMsg =
-    reward.lastElementChild.lastElementChild.firstElementChild.lastElementChild;
+    reward2.lastElementChild.lastElementChild.firstElementChild
+      .lastElementChild;
 
   validateInput(input, errorMsg, btn);
 });
