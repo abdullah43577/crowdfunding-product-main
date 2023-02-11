@@ -46,11 +46,7 @@ const closeModal = function () {
   thankYou.classList.remove("flex");
 };
 
-backProject.addEventListener("click", function () {
-  showModal();
-
-  functionCalled = false;
-});
+backProject.addEventListener("click", showModal);
 modalClose.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 btnCloseThankYou.addEventListener("click", function () {
@@ -62,6 +58,8 @@ btnCloseThankYou.addEventListener("click", function () {
     if (pld.classList.contains("activePledge"))
       pld.classList.remove("activePledge");
   });
+
+  functionCalled = false;
 });
 
 bookmark.addEventListener("click", function () {
